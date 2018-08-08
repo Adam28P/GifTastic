@@ -1,7 +1,14 @@
 $(document).ready(function () {
 
-    // Initial array of movies
-    var marvelArray = ["Scarlet Witch", "Vision", "Quick Silver", "Iron Man", "Spider-Man", "The Wasp", "Ant-Man", "Black Widow", "Hawk Eye", "Doctor Strange", "Okoye", "Black Panther", "Shuri", "Mantis", "Nebula", "Gamora", "Captain America", "Groot", "Thor", "Storm", "Wolverine", "Mystique"];
+    // Initial array of Marvel characters
+    var marvelArray = ["Scarlet Witch", "Vision", "Quicksilver", "Iron Man", "Spider-Man", "The Wasp", "Ant-Man", "Black Widow", "Hawkeye", "Doctor Strange", "Okoye", "Black Panther", "Shuri", "Star-Lord", "Rocket Raccoon", "Drax", "Mantis", "Nebula", "Gamora", "Captain America", "Groot", "Thor", "Loki", "Venom", "Daredevil", "Storm", "Wolverine", "Mystique", "Magneto", "Thanos", "Deadpool", "The Hulk", "Captain Marvel"];
+
+
+    // Generic function for capturing the character name from the data-attribute
+    function alertCharacterName() {
+        var characterName = $(this).attr("data-name");
+        alert(characterName);
+      }
 
     // Function for displaying Marvel Character buttons
     function renderButtons() {
@@ -36,6 +43,8 @@ $(document).ready(function () {
         renderButtons();
     });
 
+
+    $(document).on("click", ".character", alertCharacterName);
     renderButtons();
 
 
