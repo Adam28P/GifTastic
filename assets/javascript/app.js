@@ -6,20 +6,48 @@ $(document).ready(function () {
     // Function for dumping the JSON content for each button into the div
     function displayCharacters() {
 
+        $("#marvelCharacters").empty();
+
         var characterName = $(this).attr("data-name");
         var api = "xy4lY11exI2GePmdAFdsV1EpMSuNXop4";
         var nameNoSpace = characterName.replace(/ /g, "%20");
 
         var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + nameNoSpace + "&api_key=" + api + "&limit=10";
-        
+        console.log(queryURL);
         // AJAX call
         $.ajax({
             url: queryURL,
             method: "GET"
         }).then(function (response) {
 
-            $("#marvelCharacters").text(JSON.stringify(response));
+            for (var i = 0; i < response.data.length; i++) {
+                // Creating a div to hold the charater
+                var characterDiv = $("<div class='character'>");
 
+                // Storing the rating data
+                var rating = response.data[i].rating;
+
+                // Creating an element to have the rating displayed
+                var paragraphRating = $("<p>").text("Rating: " + rating);
+
+                // Displaying the rating
+                characterDiv.append(paragraphRating);
+
+                // Retrieving the URL for the still image
+                var imgURL = response.data[i].images.original_still.url;
+
+                // Creating an element to hold the image
+                var image = $("<img>").attr("src", imgURL);
+
+                // Appending the image
+                characterDiv.append(image);
+
+                // Putting the entire character above the previous characters
+                $("#marvelCharacters").append(characterDiv);
+            }
+
+        }).catch(function (error) {
+            console.log(error);
         });
     }
 
