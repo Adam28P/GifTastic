@@ -9,10 +9,9 @@ $(document).ready(function () {
         $("#marvelCharacters").empty();
 
         var characterName = $(this).attr("data-name");
-        var api = "xy4lY11exI2GePmdAFdsV1EpMSuNXop4";
         var nameNoSpace = characterName.replace(/ /g, "%20");
 
-        var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + nameNoSpace + "&api_key=" + api + "&limit=10";
+        var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + nameNoSpace + "%20Marvel&api_key=xy4lY11exI2GePmdAFdsV1EpMSuNXop4&limit=10";
         console.log(queryURL);
         // AJAX call
         $.ajax({
@@ -22,7 +21,20 @@ $(document).ready(function () {
 
             for (var i = 0; i < response.data.length; i++) {
                 // Creating a div to hold the charater
-                var characterDiv = $("<div class='character'>");
+                var characterDiv = $("<div>");
+
+                // Retrieving the URL for the still image
+                var imgURL = response.data[i].images.fixed_height_still.url;
+
+                // Creating an element to hold the image
+                var image = $("<img>").attr("src", imgURL);
+                image.attr("data-still", response.data[i].images.fixed_height_still.url);
+                image.attr("data-animate", response.data[i].images.fixed_height.url);
+                image.attr("data-state", "still");
+                image.addClass("gif");
+
+                // Appending the image
+                characterDiv.append(image);
 
                 // Storing the rating data
                 var rating = response.data[i].rating;
@@ -33,15 +45,6 @@ $(document).ready(function () {
                 // Displaying the rating
                 characterDiv.append(paragraphRating);
 
-                // Retrieving the URL for the still image
-                var imgURL = response.data[i].images.original_still.url;
-
-                // Creating an element to hold the image
-                var image = $("<img>").attr("src", imgURL);
-
-                // Appending the image
-                characterDiv.append(image);
-
                 // Putting the entire character above the previous characters
                 $("#marvelCharacters").append(characterDiv);
             }
@@ -49,8 +52,25 @@ $(document).ready(function () {
         }).catch(function (error) {
             console.log(error);
         });
+
     }
 
+   
+    // Function to play and pause gifs
+    $(".gif").on("click", function () {
+        var state = $(this).attr("data-state");
+        
+        if (state === "still") {
+            $(this).attr("src", $(this).attr("data-animate"));
+            $(this).attr("data-state", "animate");
+        } else {
+            $(this).attr("src", $(this).attr("data-still"));
+            $(this).attr("data-state", "still");
+        }
+    });
+    
+    
+   
     // Function for displaying Marvel Character buttons
     function renderButtons() {
 
@@ -86,7 +106,7 @@ $(document).ready(function () {
 
 
     $(document).on("click", ".character", displayCharacters);
-    renderButtons();
 
+    renderButtons();
 
 });
