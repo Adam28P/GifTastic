@@ -3,12 +3,25 @@ $(document).ready(function () {
     // Initial array of Marvel characters
     var marvelArray = ["Scarlet Witch", "Vision", "Quicksilver", "Iron Man", "Spider-Man", "The Wasp", "Ant-Man", "Black Widow", "Hawkeye", "Doctor Strange", "Okoye", "Black Panther", "Shuri", "Star-Lord", "Rocket Raccoon", "Drax", "Mantis", "Nebula", "Gamora", "Captain America", "Groot", "Thor", "Loki", "Venom", "Daredevil", "Storm", "Wolverine", "Mystique", "Magneto", "Thanos", "Deadpool", "The Hulk", "Captain Marvel"];
 
+    // Function for dumping the JSON content for each button into the div
+    function displayCharacters() {
 
-    // Generic function for capturing the character name from the data-attribute
-    function alertCharacterName() {
         var characterName = $(this).attr("data-name");
-        alert(characterName);
-      }
+        var api = "xy4lY11exI2GePmdAFdsV1EpMSuNXop4";
+        var nameNoSpace = characterName.replace(/ /g, "%20");
+
+        var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + nameNoSpace + "&api_key=" + api + "&limit=10";
+        
+        // AJAX call
+        $.ajax({
+            url: queryURL,
+            method: "GET"
+        }).then(function (response) {
+
+            $("#marvelCharacters").text(JSON.stringify(response));
+
+        });
+    }
 
     // Function for displaying Marvel Character buttons
     function renderButtons() {
@@ -44,7 +57,7 @@ $(document).ready(function () {
     });
 
 
-    $(document).on("click", ".character", alertCharacterName);
+    $(document).on("click", ".character", displayCharacters);
     renderButtons();
 
 
