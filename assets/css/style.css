@@ -6,15 +6,27 @@ body{
 
 .card-text{
     color:black;
+    font-weight:bold;
 }
 
-.card-title, label{
+.card-title{
     color:black;
     font-weight:bold;
 }
 
+.card-download{
+    color:#007bff;
+    font-weight:bold;
+}
+
+label{
+    color:black;
+    font-size:150%;
+    font-weight:bold;
+}
+
 #logo{
-    clear:both;
+    text-align: center;
 }
 
 input#marvel-character-input, input#addMarvelCharacter{
@@ -31,4 +43,8 @@ input#marvel-character-input, input#addMarvelCharacter{
 
 .character{
     margin:5px;
+}
+
+#marvelCharacterButtons, .card{
+    margin-bottom:20px;
 }

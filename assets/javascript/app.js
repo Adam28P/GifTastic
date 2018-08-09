@@ -56,7 +56,7 @@ $(document).ready(function () {
                 downloadText.attr("href", download);
                 cardText.addClass("card-text");
                 cardTitle.addClass("card-title");
-                downloadText.addClass("card-title");
+                downloadText.addClass("card-download");
 
                 var downloadIcon = $("<i>");
                 downloadIcon.addClass("fas fa-download");
@@ -122,6 +122,7 @@ $(document).ready(function () {
         var newMarvelCharacter = $('#marvel-character-input').val().trim();
 
         marvelArray.push(newMarvelCharacter);
+        $('#marvel-character-input').val("");
 
         renderButtons();
     });
