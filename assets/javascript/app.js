@@ -11,7 +11,7 @@ $(document).ready(function () {
         var characterName = $(this).attr("data-name");
         var nameNoSpace = characterName.replace(/ /g, "%20");
 
-        var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + nameNoSpace + "%20Marvel&api_key=xy4lY11exI2GePmdAFdsV1EpMSuNXop4&limit=10";
+        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + nameNoSpace + "%20Marvel&api_key=xy4lY11exI2GePmdAFdsV1EpMSuNXop4&limit=10";
         console.log(queryURL);
         // AJAX call
         $.ajax({
