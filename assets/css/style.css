@@ -48,3 +48,8 @@ input#marvel-character-input, input#addMarvelCharacter{
 #marvelCharacterButtons, .card{
     margin-bottom:20px;
 }
+
+.instructions, h4{
+    color:black;
+    font-weight:bold;
+}
