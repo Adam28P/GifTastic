@@ -24,3 +24,11 @@ input#marvel-character-input, input#addMarvelCharacter{
 .fas, .fa-download{
     color:black;
 }
+
+.container-fluid{
+    margin-top:20px;
+}
+
+.character{
+    margin:5px;
+}
