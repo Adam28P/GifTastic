@@ -19,6 +19,8 @@ $(document).ready(function () {
             method: "GET"
         }).then(function (response) {
 
+
+
             for (var i = 0; i < response.data.length; i++) {
                 // Creating a div to hold the charater
                 var characterDiv = $("<div>");
@@ -50,9 +52,9 @@ $(document).ready(function () {
                 var download = response.data[i].images.fixed_height.url;
 
                 // Creating an element to have the rating displayed
-                var cardText = $("<span>").text(" Rating: " + rating );
-                var cardTitle = $("<p>").text(title);
-                var downloadText = $("<a>").text(" Download Gif");
+                var cardText = $("<span>").text(" Rating: " + rating);
+                var cardTitle = $("<h5>").text(title);
+                var downloadText = $("<a download>").text(" Download Gif");
                 downloadText.attr("href", download);
                 cardText.addClass("card-text");
                 cardTitle.addClass("card-title");
@@ -111,6 +113,7 @@ $(document).ready(function () {
             addBtn.text(marvelArray[i]);
             // Adding the button to the HTML
             $("#marvelCharacterButtons").append(addBtn);
+
         }
     }
 
@@ -122,14 +125,33 @@ $(document).ready(function () {
         var newMarvelCharacter = $('#marvel-character-input').val().trim();
 
         marvelArray.push(newMarvelCharacter);
+        saveMarvelArray();
         $('#marvel-character-input').val("");
 
         renderButtons();
     });
 
+    getMarvelArray();
+
+    // Function to save data to local storage
+    function saveMarvelArray() {
+        var str = JSON.stringify(marvelArray);
+        localStorage.setItem("marvelArray",str)
+    }
+
+    // Function to get data from local storage
+    function getMarvelArray() {
+        var str = localStorage.getItem("marvelArray");
+        marvelArray = JSON.parse(str);
+        if (!marvelArray){
+            marvelArray = ["Scarlet Witch", "Vision", "Quicksilver", "Iron Man", "Spider-Man", "The Wasp", "Ant-Man", "Black Widow", "Hawkeye", "Doctor Strange", "Okoye", "Black Panther", "Shuri", "Star-Lord", "Rocket Raccoon", "Drax", "Mantis", "Nebula", "Gamora", "Captain America", "Groot", "Thor", "Loki", "Venom", "Daredevil", "Storm", "Wolverine", "Mystique", "Magneto", "Thanos", "Deadpool", "The Hulk", "Captain Marvel"];
+
+        }
+    }
+
     // Function to display gifs on page when character button is clicked
     $(document).on("click", ".character", displayCharacters);
 
     renderButtons();
-
+    
 });
