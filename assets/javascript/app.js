@@ -22,6 +22,9 @@ $(document).ready(function () {
             for (var i = 0; i < response.data.length; i++) {
                 // Creating a div to hold the charater
                 var characterDiv = $("<div>");
+                characterDiv.addClass("card");
+                characterDiv.attr("style", "float:left; margin-left:20px; margin-bottom:20px;");
+
 
                 // Retrieving the URL for the still image
                 var imgURL = response.data[i].images.fixed_height_still.url;
@@ -31,19 +34,32 @@ $(document).ready(function () {
                 image.attr("data-still", response.data[i].images.fixed_height_still.url);
                 image.attr("data-animate", response.data[i].images.fixed_height.url);
                 image.attr("data-state", "still");
-                image.addClass("gif");
+                image.addClass("card-img-top gif");
 
                 // Appending the image
                 characterDiv.append(image);
+
+                var cardBody = $("<div>");
+                cardBody.addClass("card-body");
 
                 // Storing the rating data
                 var rating = response.data[i].rating;
 
                 // Creating an element to have the rating displayed
-                var paragraphRating = $("<p>").text("Rating: " + rating);
+                var cardText = $("<p>").text("Rating: " + rating);
+                cardText.addClass("card-text");
+
+                cardBody.append(cardText);
+
+                characterDiv.append(cardBody);
+
+                
+
+                
+               
 
                 // Displaying the rating
-                characterDiv.append(paragraphRating);
+                // characterDiv.append(paragraphRating);
 
                 // Putting the entire character above the previous characters
                 $("#marvelCharacters").append(characterDiv);
@@ -55,6 +71,7 @@ $(document).ready(function () {
 
     }
 
+    // Function to make gifs play and pause on click
     $(document).on('click', '.gif', function () {
         var state = $(this).attr("data-state");
 
@@ -66,13 +83,6 @@ $(document).ready(function () {
             $(this).attr("data-state", "still");
         }
     });
-
-    // Function to play and pause gifs
-    // $(".gif").on("click", function () {
-      
-    // });
-    
-    
    
     // Function for displaying Marvel Character buttons
     function renderButtons() {
@@ -107,7 +117,7 @@ $(document).ready(function () {
         renderButtons();
     });
 
-
+    // Function to display gifs on page when character button is clicked
     $(document).on("click", ".character", displayCharacters);
 
     renderButtons();

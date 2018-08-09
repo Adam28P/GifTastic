@@ -1,4 +1,9 @@
 body{
-    background:black;
+    background: url(../images/ep_naturalblack.png);
     color:white;
+    font-family: 'Marvel', sans-serif;
+}
+
+.card-text{
+    color:black;
 }
