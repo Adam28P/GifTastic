@@ -7,3 +7,12 @@ body{
 .card-text{
     color:black;
 }
+
+.card-title{
+    color:black;
+    font-weight:bold;
+}
+
+#logo{
+    clear:both;
+}

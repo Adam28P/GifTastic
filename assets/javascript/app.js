@@ -23,7 +23,7 @@ $(document).ready(function () {
                 // Creating a div to hold the charater
                 var characterDiv = $("<div>");
                 characterDiv.addClass("card");
-                characterDiv.attr("style", "float:left; margin-left:20px; margin-bottom:20px;");
+                characterDiv.attr("style", "float:left; margin-left:20px; margin-right:20px; margin-bottom:20px;");
 
 
                 // Retrieving the URL for the still image
@@ -42,24 +42,20 @@ $(document).ready(function () {
                 var cardBody = $("<div>");
                 cardBody.addClass("card-body");
 
+
                 // Storing the rating data
                 var rating = response.data[i].rating;
+                var title = response.data[i].title;
 
                 // Creating an element to have the rating displayed
                 var cardText = $("<p>").text("Rating: " + rating);
+                var cardTitle = $("<p>").text(title);
                 cardText.addClass("card-text");
+                cardTitle.addClass("card-title");
 
-                cardBody.append(cardText);
+                cardBody.append(cardTitle).append(cardText);
 
                 characterDiv.append(cardBody);
-
-                
-
-                
-               
-
-                // Displaying the rating
-                // characterDiv.append(paragraphRating);
 
                 // Putting the entire character above the previous characters
                 $("#marvelCharacters").append(characterDiv);
@@ -83,7 +79,7 @@ $(document).ready(function () {
             $(this).attr("data-state", "still");
         }
     });
-   
+
     // Function for displaying Marvel Character buttons
     function renderButtons() {
 
