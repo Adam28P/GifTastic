@@ -23,7 +23,7 @@ $(document).ready(function () {
                 // Creating a div to hold the charater
                 var characterDiv = $("<div>");
                 characterDiv.addClass("card");
-                characterDiv.attr("style", "float:left; margin-left:20px; margin-right:20px; margin-bottom:20px;");
+                characterDiv.attr("style", "float:left; margin: 20px 20px ;");
 
 
                 // Retrieving the URL for the still image
@@ -31,6 +31,7 @@ $(document).ready(function () {
 
                 // Creating an element to hold the image
                 var image = $("<img>").attr("src", imgURL);
+                image.attr("style", "height:200px;");
                 image.attr("data-still", response.data[i].images.fixed_height_still.url);
                 image.attr("data-animate", response.data[i].images.fixed_height.url);
                 image.attr("data-state", "still");
@@ -46,14 +47,26 @@ $(document).ready(function () {
                 // Storing the rating data
                 var rating = response.data[i].rating;
                 var title = response.data[i].title;
+                var download = response.data[i].images.fixed_height.url;
 
                 // Creating an element to have the rating displayed
-                var cardText = $("<p>").text("Rating: " + rating);
+                var cardText = $("<span>").text(" Rating: " + rating );
                 var cardTitle = $("<p>").text(title);
+                var downloadText = $("<a>").text(" Download Gif");
+                downloadText.attr("href", download);
                 cardText.addClass("card-text");
                 cardTitle.addClass("card-title");
+                downloadText.addClass("card-title");
 
-                cardBody.append(cardTitle).append(cardText);
+                var downloadIcon = $("<i>");
+                downloadIcon.addClass("fas fa-download");
+
+                var ratingIcon = $("<i>");
+                ratingIcon.addClass("fas fa-star");
+
+                var lineBreak = $("<br />");
+
+                cardBody.append(cardTitle).append(ratingIcon).append(cardText).append(lineBreak).append(downloadIcon).append(downloadText);
 
                 characterDiv.append(cardBody);
 

@@ -8,11 +8,19 @@ body{
     color:black;
 }
 
-.card-title{
+.card-title, label{
     color:black;
     font-weight:bold;
 }
 
 #logo{
     clear:both;
+}
+
+input#marvel-character-input, input#addMarvelCharacter{
+    width:100%;
+}
+
+.fas, .fa-download{
+    color:black;
 }

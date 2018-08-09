@@ -17,27 +17,42 @@
     <!-- Link to Marvel font -->
     <link href="https://fonts.googleapis.com/css?family=Marvel" rel="stylesheet">
 
+    <!-- Add icon library -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+
 </head>
 
 <body>
-        
-    <div id="marvelCharacterButtons">
-        
-    </div>
+    <section class="container-fluid">
+        <section class="row">
+            <div class="col-md-9">
+                <div id="marvelCharacterButtons">
 
-    <form id="marvelCharacterForm">
+                </div>
 
-        <label for="marvel-character-input">Add a Marvel Character</label>
-        <input type="text" id="marvel-character-input">
-        <br />
+                <div id="marvelCharacters">
 
-        <input id="addMarvelCharacter" type="submit" value="Submit">
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-header">
+                        <form id="marvelCharacterForm">
+                            <label for="marvel-character-input">Add a Marvel Character</label>
+                    </div>
+                    <div class="card-body">
+                        <input type="text" id="marvel-character-input">
+                        <br />
+                        <br />
+                        <input id="addMarvelCharacter" type="submit" value="Submit">
 
-    </form>
+                        </form>
+                    </div>
+                </div>
 
-    <div id="marvelCharacters">
-
-    </div>
+            </div>
+        </section>
+    </section>
 
     <img id="logo" src="assets/images/PoweredBy_200px-Black_HorizLogo.png" alt="Giphy logo" />
 
