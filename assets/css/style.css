@@ -53,3 +53,8 @@ input#marvel-character-input, input#addMarvelCharacter{
     color:black;
     font-weight:bold;
 }
+
+h2{
+    margin-top:150px;
+    text-align:center;
+}
