@@ -6,9 +6,9 @@
 </ul>
 
 <h2>Screenshot</h2>
-<img src="assets/images/game-screenshot.png" width="400" alt="game screenshot" />
+<img src="assets/images/game-screenshot.png" width="800" alt="game screenshot" />
 
-<h2>Game Logic</h2>
+<h2>Web Application Logic</h2>
 <ul>
 <li>When the trivia game starts, the player will need to press the start game to begin.</li>
 <li>The player must answer 13 multiple choice questions</li>
