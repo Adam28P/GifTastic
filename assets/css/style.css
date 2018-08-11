@@ -1,69 +1,84 @@
+/* Styling for backgrund and font of page */
 body{
     background: url(../images/ep_naturalblack.png);
     color:white;
     font-family: 'Marvel', sans-serif;
 }
 
+/* Styling for gif rating */
 .card-text{
     color:black;
     font-weight:bold;
 }
 
+/* Styling for gif title */
 .card-title{
     color:black;
     font-weight:bold;
 }
 
+/* Styling for gif download link */
 .card-download{
     color:#007bff;
     font-weight:bold;
 }
 
+/* Styling for titles on cards on right side */
 label{
     color:black;
     font-size:150%;
     font-weight:bold;
 }
 
+/* Styling for giphy logo */
 #logo{
     text-align: center;
 }
 
+/* Styling for input text box */
 input#marvel-character-input, input#addMarvelCharacter{
     width:100%;
 }
 
+/* Styling for icons */
 .fas, .fa-download{
     color:black;
 }
 
+/* Styling for bootstrap grid container */
 .container-fluid{
     margin-top:20px;
 }
 
+/* Styling for character buttons */
 .character{
     margin:5px;
 }
 
+/* Styling for character buttons */
 #marvelCharacterButtons, .card{
     margin-bottom:20px;
 }
 
+/* Styling for instruction text on right side */
 .instructions, h4{
     color:black;
     font-weight:bold;
 }
 
+/* Styling for headers */
 h2{
     margin-top:150px;
     text-align:center;
 }
 
+/* Styling for load more gifs button */
 #moreGifs{
     clear:both;
     margin: 50px 50px;
 }
 
+/* Styling for load more gifs buttons */
 button.more-gifs {
     background-color: white;
     height:100px;
@@ -74,6 +89,7 @@ button.more-gifs {
     font-weight:bold;
 }
 
+/* Styling for character buttons */
 button.character{
     background-color: #ffee7e;
     height:30px;
