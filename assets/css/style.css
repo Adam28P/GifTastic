@@ -73,3 +73,11 @@ button.more-gifs {
     font-size:150%;
     font-weight:bold;
 }
+
+button.character{
+    background-color: #ffee7e;
+    height:30px;
+    width:150px;
+    cursor:pointer;
+    font-weight:bold;
+}
