@@ -63,3 +63,13 @@ h2{
     clear:both;
     margin: 50px 50px;
 }
+
+button.more-gifs {
+    background-color: white;
+    height:100px;
+    width:100%;
+    cursor:pointer;
+    margin-top:40px;
+    font-size:150%;
+    font-weight:bold;
+}

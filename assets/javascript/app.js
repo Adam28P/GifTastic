@@ -88,7 +88,7 @@ $(document).ready(function () {
             // Adding a data-attribute with a value of the charcater at index i
             moreButton.attr("data-name", characterName);
             // Providing the button's text with a value of the character at index i
-            moreButton.text("Load 10 more gifs");
+            moreButton.text("+ Load 10 more gifs");
             // Adding the button to the HTML
             $("#moreGifs").append(moreButton);
         }
