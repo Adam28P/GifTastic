@@ -58,3 +58,8 @@ h2{
     margin-top:150px;
     text-align:center;
 }
+
+#moreGifs{
+    clear:both;
+    margin: 50px 50px;
+}
