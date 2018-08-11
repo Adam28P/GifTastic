@@ -43,13 +43,16 @@ $(document).ready(function () {
                 var cardBody = $("<div>");
                 cardBody.addClass("card-body");
 
-
                 // Storing the rating data
                 var rating = response.data[i].rating;
+
+                // Storing the title data
                 var title = response.data[i].title;
+
+                // Storing the download link data
                 var download = response.data[i].images.fixed_height.url;
 
-                // Creating an element to have the rating displayed
+                // Creating an element to have the card title and text displayed
                 var cardText = $("<span>").text(" Rating: " + rating);
                 var cardTitle = $("<h5>").text(title);
                 var downloadText = $("<a download>").text(" Download Gif");
@@ -58,19 +61,22 @@ $(document).ready(function () {
                 cardTitle.addClass("card-title");
                 downloadText.addClass("card-download");
 
+                // Creating an element to have the download link displayed
                 var downloadIcon = $("<i>");
                 downloadIcon.addClass("fas fa-download");
 
+                // Creating an element to have the rating displayed
                 var ratingIcon = $("<i>");
                 ratingIcon.addClass("fas fa-star");
 
+                // Creating an element to have a line break
                 var lineBreak = $("<br />");
 
+                // Appending all elements together
                 cardBody.append(cardTitle).append(ratingIcon).append(cardText).append(lineBreak).append(downloadIcon).append(downloadText);
 
+                // Appending the character div to our HTML page
                 characterDiv.append(cardBody);
-
-
 
                 // Putting the entire character above the previous characters
                 $("#marvelCharacters").append(characterDiv);
@@ -80,14 +86,15 @@ $(document).ready(function () {
             console.log(error);
         });
 
+        // Function to create an Add More Gifs button
         if ($("#moreGifs").html() === "") {
             // adding the load more gifs button
             var moreButton = $("<button>");
-            // Adding a class of charcater
+            // Adding a class of more-gifs
             moreButton.addClass("more-gifs");
-            // Adding a data-attribute with a value of the charcater at index i
+            // Adding a data-attribute with a value of the charcater
             moreButton.attr("data-name", characterName);
-            // Providing the button's text with a value of the character at index i
+            // Providing the button's text
             moreButton.text("+ Load 10 more gifs");
             // Adding the button to the HTML
             $("#moreGifs").append(moreButton);
@@ -164,9 +171,11 @@ $(document).ready(function () {
 
     // Function to display gifs on page when character button is clicked
     $(document).on("click", ".character", displayCharacters);
+
+    // Function to display 10 more additonal gifs on page when "Add 10 more gifs" is clicked
     $(document).on("click", ".more-gifs", displayAgain);
 
-
+    // Function to display additional gifs when load more is pushed
     function displayAgain() {
 
         $("#marvelCharacters").empty();
@@ -245,7 +254,8 @@ $(document).ready(function () {
 
 
     }
-
+    
+    // Render buttons on page load
     renderButtons();
 
 });
