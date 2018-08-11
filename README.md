@@ -10,12 +10,16 @@
 
 <h2>Web Application Logic</h2>
 <ul>
-<li>When the trivia game starts, the player will need to press the start game to begin.</li>
-<li>The player must answer 13 multiple choice questions</li>
-<li>Each multiple choice question has 4 possible answers and a time limit of 20 seconds to answer them.</li>
-<li>If the player guesses the answer correctly, they will have 1 point added to their correct answer score.</li>
-<li>If the player answers incorrectly, they will have 1 point added to their incorrect answer score.</li>
-<li>If the player does not make a guess within the 20 second time limit, they will have 1 point added to their unanswered score.</li>
-<li>There is a 5 second break in between each question.</li>
-<li>Once the player has gone through all 13 questions they will be presented with their score and the opportunity to restart the game to play again.</li>
+
+When this web page loads you can view gifs of all of your favourite Marvel superheroes. You can start by clicking any of the buttons that are pre-populated. Once you click on a character's button, 10 gifs of that character will load below. The gifs load as stills, but clicking each individual gif will toggle it to animate. 
+
+You can also add your own character buttons by filling in the text box below and pressing submit. This will add a button with your superhero character to the list. Now you can click on it and see the gifs of the super hero you created! 
+
+The newly created buttons will remain on the screen as they are saved to your local storage.
+
+You can also load an additional 10 gifs by clicking on the button below all of the gifs.
+
+Have fun! 
+
+
 </ul>
